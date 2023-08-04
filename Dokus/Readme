@@ -16,6 +16,7 @@ subgoals
 - done - exit
 - display exit at exit 
 - pwd
+- env OLDPWD and PWD do not update optimaly, optimize them
 - do other builtins from the oder minishell: get_cmdpath_full() would need to handle resolving relative and absolute paths, checking the PATH environment variable, and more.
 - pipes ( is 80% , not a lot of code)
 - make sure it compiles before next meeting
