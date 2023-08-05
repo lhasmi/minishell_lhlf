@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 18:44:03 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/08/04 20:33:59 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/08/05 14:52:02 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 #include "../libft/includes/ft_printf.h"
 #include "../envtable/envtable.h"
 #include "../builtins/builtins.h"
+#include "../pipes/pipes.h"
 #include "../execution/execution.h"
 
 ///////////////////////////////

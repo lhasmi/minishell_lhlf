@@ -6,19 +6,20 @@
 subgoals
 - done - The get_env_name and get_env_value functions: I need to implement these functions such that they correctly split the environment string (in the form of key=value) into key and value respectively.
 
-- done -  change the functions that look up the environment variables ('do_lookup') 
+- done -  change the functions that look up the environment variables ('do_lookup')
 - done - change the function that updates the environment variables ('update_entry').
 
-- done - implemented a function to look up the environment variable 'env_lookup' and update it 'env_update'. 
+- done - implemented a function to look up the environment variable 'env_lookup' and update it 'env_update'.
 
 - done - The 'env_lookup' function should return a 't_env' pointer and the 'env_update' function should update the value of an existing 't_env' node.
 
 - done - exit
-- display exit at exit 
+- display exit at exit
 - pwd
 - env OLDPWD and PWD do not update optimaly, optimize them
 - do other builtins from the oder minishell: get_cmdpath_full() would need to handle resolving relative and absolute paths, checking the PATH environment variable, and more.
-- pipes ( is 80% , not a lot of code)
+- remove is_owned (malloc has been done already in ft_substr)
+- pipes ( is 80% , not a lot of code), see pipes to do list bellow
 - make sure it compiles before next meeting
 
 - case export a, export a= check env and export in each case
@@ -28,7 +29,9 @@ Also note that we are using add_env_var to add new entries, assuming that it app
 - Memory management: As per the function create_env_node, the name and value are directly assigned to the node. If these are pointers returned by  get_env_name and get_env_value functions (after performing some memory allocation in them), I'll have to make sure that these are freed appropriately when I no longer need the node. Otherwise, this can result in memory leaks.
 
 - make sure to check for NULL when using the return value of this get_env_name elsewhere in the code.
-
+# pipes to do list
+- pipes for comands with arguments
+- handle the case where a child process is killed by a signal, which we can do by examining the status variable in waitpid().
 
 # for Lorenzo
 - Define structs: 1) Node

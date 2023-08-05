@@ -1,13 +1,13 @@
 
 TODO
 - add the parsing part of these (half of it done)
-- error for parsing: all possible combinations of brackets and of & and of ors,  
+- error for parsing: all possible combinations of brackets and of & and of ors,
 
-- attack the execution : one symbol at a time and test once after the other- be inspired by the outline of Anthony 
+- attack the execution : one symbol at a time and test once after the other- be inspired by the outline of Anthony
 - AND OR
 - brackets (subshell)
 
-IF ALL THIS is bad ==> allow one day for wildcard 
+IF ALL THIS is bad ==> allow one day for wildcard
 
 ```bash
 a=3 ls
@@ -19,7 +19,8 @@ echo $a
 ```bash
 a | b | c
 ```
-
+# each command runs in parallel
+# the output of each command is used as the input of the next command
 fork a
 fork b
 fork c

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 17:50:40 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/08/04 23:44:03 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/08/05 15:24:18 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	execute_command(char **command, t_env *envp, int argc, char **argv, int *exi
 	int		builtin_status;
 
 	builtin_status = 1;
+	status = 0;
 	if (is_builtin(*command))
 	{
 		builtin_status = execute_builtin(command, envp, argc, argv, exit_status);
