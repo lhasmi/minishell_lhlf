@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtins.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 17:48:35 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/08/04 23:40:29 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/08/05 23:04:57 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_builtin
 
 char				**get_builtins(void);
 
-int					is_builtin(char *cmd);
+int					is_builtin(t_list *node);
 
 int					ft_echo(int argc, ...);
 int					ft_cd(int argc, t_env *env, ...);

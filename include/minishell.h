@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 18:44:03 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/08/05 14:52:02 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/08/05 16:42:41 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 // Necessary includes for the allowed functions:
 ///////////////////////////////////////////////
 #include <stdlib.h>     // For general functions such as malloc, free, exit etc
+#include <stdbool.h>    // Boolean type and values
 #include <sys/ioctl.h>  // Required for ioctl
 #include <fcntl.h>      // Required for open
 #include <term.h>       // Required for tgetent, tgetflag, tgetnum, tgetstr, tgoto, tputs
@@ -35,6 +36,8 @@
 #include "../libft/includes/libft.h"
 #include "../libft/includes/get_next_line.h"
 #include "../libft/includes/ft_printf.h"
+#include "../parsing/parser.h"
+#include "../parsing/lexer.h"
 #include "../envtable/envtable.h"
 #include "../builtins/builtins.h"
 #include "../pipes/pipes.h"
@@ -52,7 +55,6 @@
 #include <pwd.h>        // Password structure (provides user details)
 #include <regex.h>      // Regular expression handling
 #include <stdarg.h>     // Variable arguments
-#include <stdbool.h>    // Boolean type and values
 #include <termios.h>    // Terminal I/O interfaces
 
 

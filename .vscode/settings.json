@@ -1,0 +1,13 @@
+{
+	"C_Cpp.dimInactiveRegions": false,
+	"files.associations": {
+		"minishell.h": "c",
+		"builtins.h": "c",
+		"pipes.h": "c",
+		"execution.h": "c",
+		"fnmatch.h": "c",
+		"limits.h": "c",
+		"parser.h": "c",
+		"lexer.h": "c"
+	}
+}

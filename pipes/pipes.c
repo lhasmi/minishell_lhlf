@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 17:50:34 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/08/05 15:34:23 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/08/05 18:14:08 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // Redirection and pipes,
 // which require manipulating file descriptors before exec-ing the process.
-
+//has to be removed from here and put in execution/executor.c
 void	execute_pipeline_command(t_piper *pip, int i, t_env *envp, int argc,
 		char **argv)
 {
@@ -50,6 +50,7 @@ void	execute_pipeline_command(t_piper *pip, int i, t_env *envp, int argc,
 	}
 }
 
+//execute node does what this does , so remove this function
 void	execute_pipeline(t_piper *pip, t_env *envp, int argc, char **argv)
 {
 	int	i;

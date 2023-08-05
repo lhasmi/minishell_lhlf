@@ -19,7 +19,11 @@
 # include "ft_printf.h"
 
 # define NULL_OUTPUT 0
-
+// struct s_slice
+// {
+// 	int		start;
+// 	int		len;
+// };
 typedef struct s_list
 {
 	void			*content;

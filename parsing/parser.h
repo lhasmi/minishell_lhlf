@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:44:03 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/07/31 20:41:48 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/08/05 16:59:13 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,58 +14,60 @@
 # define PARSER_H
 
 # include <stdbool.h>
+# include "../include/minishell.h"
 
+// struct s_slice
+// {
+// 	int		start;
+// 	int		len;
+// };
 
-enum e_ast_node_type
+//when we call the t_list the content will be a slice or in redirection it will be
+// a redirection struct
+typedef struct s_node
 {
-	AST_NODE_CMD,
-	AST_NODE_PIPE,
-	AST_NODE_AND,
-	AST_NODE_OR
-};
+	bool			is_pipe;
+	struct s_node	*left;
+	struct s_node	*right;
+	t_list	*commands;			// Linked list of t_slice
+	t_list	*redirections;		// Linked list of t_redirection
+	t_list	*assignments; 		// Linked list of t_slice
+} t_node;
 
-struct s_ast_node
-{
-	enum e_ast_node_type		type;
-	struct s_ast_node_content	*content;
-	struct s_ast_node			*left;
-	struct s_ast_node			*right;
-};
+// struct s_node	*new_node(void);
+// int				free_node(struct s_node *node);
+// int				add_command(struct s_node *node, struct s_slice command);
+// int				add_redirection(struct s_node *node, struct s_redirection redirection);
+// int				add_assignment(struct s_node *node, struct s_slice assignment);
+// int				free_tree(struct s_node *root);
 
-struct s_ast_node_content
+typedef enum e_redirection_type
 {
-	t_ast_redirection_vector	redirection_in;
-	t_ast_redirection_vector	redirection_out;
-	t_sb_vector					assignment;
-	t_sb_vector					command;
-};
+	REDIR_LESS,
+	REDIR_DOUBLE_LESS,
+	REDIR_GREAT,
+	REDIR_DOUBLE_GREAT
+} t_redirection_type;
 
-typedef enum e_ast_redirection_type
+typedef struct s_redirection
 {
-	REDIRCT_STDIN,
-	REDIRECT_HEREDOC,
-	REDIRECT_STDOUT,
-	REDIRECT_STDOUT_APPEND
-}	t_ast_redirection_type;
+	enum e_redirection_type	type;
+	struct s_slice			data;
+} t_redirection;
 
-struct s_ast_redirection
-{
-	t_ast_redirection_type	type;
-	t_ft_sb					content;
-};
 
-typedef enum e_parser_exit_code
-{
-	PARSER_SUCCESS,
-	PARSER_FAILURE,
-}			t_parser_exit_code;
+// struct s_redirection	new_redirection(enum e_redirection_type type, struct s_slice data);
 
-struct s_parser
+typedef struct s_parser
 {
-	bool				malloc_fail;
-	struct s_ast_node	*head;
-	struct s_ast_node	*current;
-	struct s_token_list	*current_token;
-};
+	struct s_lexer	*lexer;
+	t_list			*current_token;
+	struct s_node	*root;
+	struct s_node	*current_node;
+} t_parser;
+
+// int	parser_init(struct s_parser *parser, struct s_lexer *lexer);
+// int	parser_free(struct s_parser *parser);
+// int	create_tree()
 
 #endif

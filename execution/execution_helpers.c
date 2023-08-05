@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execution_helpers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhasmi <lhasmi@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 12:18:38 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/08/04 23:51:18 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/08/05 23:13:04 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,36 +85,41 @@ char	*get_cmdpath_full(char *cmd, t_env *envp)
 	return (path);
 }
 
-int	is_builtin(char *cmd)
+// int	is_builtin(char *cmd)
+int	is_builtin(t_list *node)
 {
-	char	**builtins;
+	char			**builtins;
+	struct s_slice	*slice;
 	int i;
 
 	builtins = get_builtins();
 	i = 0;
 	while (builtins[i])
 	{
-		if (ft_strcmp(cmd, builtins[i]) == 0)
+		slice = node->content;
+		if (ft_strcmp(slice->start, builtins[i]) == 0)
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-int	execute_builtin(char **command, t_env *env, int argc, char **argv, int *exit_status)
+// int	execute_builtin(char **command, t_env *env, int argc, char **argv, int *exit_status)
+int	execute_builtin(t_node *node, t_piper *pip)
 {
-	int	i;
+	int				i;
+	char		**command;
 
+	command = linked_list_to_array(node);
 	if (ft_strcmp(command[0], "exit") == 0)
 	{
-		ft_exit(command, exit_status);
+		ft_exit(command, pip->exit_status);
 		return 0; // Indicates that we should exit the shell
 	}
-
 	// Based on the first command, execute the correct function
 	if (ft_strcmp(command[0], "env") == 0)
     {
-        print_env_table(env);
+        print_env_table(pip->envp);
         return 1;
     }
 	i = 0;
