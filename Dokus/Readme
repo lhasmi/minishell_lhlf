@@ -61,7 +61,7 @@ Below are the allowed functions for this project:
 	# NOTE:
 	The macro WIFEXITED(status) is used to check if a child process has terminated normally. It's a part of <sys/wait.h> header file and is typically used with waitpid() or wait() to determine the exit status of a child process. As per the rules of your assignment, you're allowed to use waitpid() or wait() and it's common and recommended to use WIFEXITED(status) with these.
 
-6. `signal`, `sigaction`, `sigemptyset`, `sigaddset`, `kill`: Works with signals, a form of inter-process communication. They handle signals like SIGINT (sent when you press Ctrl-C), and others.
+6. `signal`, `sigaction`, `sigemptyset`, `sigaddset`, `kill` `exit`: Works with signals, a form of inter-process communication. They handle signals like SIGINT (sent when you press Ctrl-C), and others.
 7. `getcwd`, `chdir`: Gets and changes the current working directory, needed for commands like `cd` and `pwd`.
 8. `stat`, `lstat`, `fstat`: Retrieves information about files. Useful for commands that need to know about file properties.
 9. `dup`, `dup2`, `pipe`: Manipulates file descriptors and sets up pipes, necessary for handling redirection and piping.

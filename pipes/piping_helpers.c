@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 13:47:21 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/08/05 15:11:14 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/08/06 21:49:03 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void	dup2_fd(int oldfd, int newfd)
 		perror("dup2");
 }
 
-void	init_piper(t_piper *pip, int num_commands, char ***commands)
+void	init_piper(t_piper *pip, t_node *root, t_env *envp)
 {
-	pip->num_commands = num_commands;
-	pip->commands = commands;
+	pip->root = root;
+	pip->envp = envp;
 	pip->exit_status = 0;
 	pip->in_fd = 0;
 	pip->out_fd = 1;

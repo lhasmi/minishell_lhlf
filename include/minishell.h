@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 18:44:03 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/08/05 16:42:41 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/08/06 21:43:02 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@
 //////////// main.c /////////////
 // void minishell();
 // main();
+t_node	*make_tree(void);
+void	print_tree(t_node *node);
 
 /////////// parser.c ///////////
 char** parse_input(char* input);

@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 17:48:54 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/08/06 13:41:57 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/08/06 21:39:35 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	update_and_print_status(t_piper *pip, char **args, int i, int j)
 		pip->exit_status = 255;
 	}
 }
-
+//use exit function and associateit with fork
 int	ft_exit(t_piper *pip, t_node *node)
 {
 	int		i;
