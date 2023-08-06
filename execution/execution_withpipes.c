@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 16:30:15 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/08/05 23:03:26 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/08/06 13:48:43 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,15 @@ void	execute_node(t_piper *pip, t_node *node)
 		execute_command(pip, node);
 }
 
-char	**linked_list_to_array(t_node *list)
+char	**linked_list_to_array(t_node *node)
 {
 	int				length;
 	char			**array;
 	struct s_slice	*slice;
+	t_list          *current;
 	int				i;
 
-	length = ft_lstsize(list->commands);
+	length = ft_lstsize(node->commands);
 	array = malloc((length + 1) * sizeof(char *));
 	if (!array)
 	{
@@ -58,16 +59,17 @@ char	**linked_list_to_array(t_node *list)
 		return (NULL);
 	}
 	i = 0;
+	current = node->commands;
 	while (i < length)
 	{
-		slice = list->commands->content;
+		slice = current->content;
 		array[i] = ft_strndup(slice->start, slice->len);
 		if (!array[i])
 		{
 			perror("strndup");
 			return (NULL);
 		}
-		list->commands = list->commands->next;
+		current = current->next;
 		i++;
 	}
 	array[length] = NULL; // NULL-terminate the array

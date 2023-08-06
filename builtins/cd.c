@@ -6,11 +6,12 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 17:48:46 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/08/05 23:19:37 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/08/06 13:48:23 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
+
 void	update_pwd(char *newpwd, t_env *env)
 {
 	t_env	*oldpwd;
@@ -90,18 +91,21 @@ int	change_to_new_dir(char *new_dir_path, t_piper *pip)
 
 int	ft_cd(t_piper *pip, t_node *node)
 {
-    char	*path;
+	char	**argv;
 	int		result;
 
-    if (node->commands->len == 1)
-        result = change_to_home(pip);
-    else
-    {
-        path = linked_list_to_array(node->commands)[1]; // assuming this is your second argument
-        if (ft_strcmp(path, "-") == 0)
-            result = change_to_oldpwd(pip);
-        else
-            result = change_to_new_dir(path, pip);
-    }
-    return (result);
+	argv = linked_list_to_array(node);
+	if (!argv)
+		return (-1);
+	if (argv[1] == NULL)
+		result = change_to_home(pip);
+	else
+	{
+		if (ft_strcmp(argv[1], "-") == 0)
+			result = change_to_oldpwd(pip);
+		else
+			result = change_to_new_dir(argv[1], pip);
+	}
+	free_argv(argv);
+	return (result);
 }

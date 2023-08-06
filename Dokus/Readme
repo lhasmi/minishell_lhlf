@@ -1,5 +1,5 @@
 # Project README
-## TO DO :
+## TO DO : (WOT = without testing)
 - done - build a function to get builtins functions --> builtins.c
 - done - change the call of the functions accordingly --> executor_helpers.c
 - done - how do I want to store them (anthony_storingvars)
@@ -14,15 +14,17 @@ subgoals
 - done - The 'env_lookup' function should return a 't_env' pointer and the 'env_update' function should update the value of an existing 't_env' node.
 
 - done - exit
-- display exit at exit
+- doneWOT- display exit at exit
+- export
 - pwd
+- Remember to call free_argv(args); after calling ft_exit().
 - env OLDPWD and PWD do not update optimaly, optimize them
-- do other builtins from the oder minishell: get_cmdpath_full() would need to handle resolving relative and absolute paths, checking the PATH environment variable, and more.
+-  get_cmdpath_full() would need to handle resolving relative and absolute paths, checking the PATH environment variable, and more.
 - remove is_owned (malloc has been done already in ft_substr)
 - pipes ( is 80% , not a lot of code), see pipes to do list bellow
 - make sure it compiles before next meeting
-
 - case export a, export a= check env and export in each case
+
 - Note that is_owned indicates whether the value was dynamically allocated and needs to be freed. If the value passed to env_update is not dynamically allocated (e.g., it is a string literal or an array), is_owned should be set to 0, and value should not be freed.
 
 Also note that we are using add_env_var to add new entries, assuming that it appends the new entry to the list if the list is non-empty. If this is not the case, you would need to modify this function or use a different function to add the new entry in a correct place.

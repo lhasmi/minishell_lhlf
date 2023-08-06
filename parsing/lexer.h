@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 19:27:22 by lfiorini          #+#    #+#             */
-/*   Updated: 2023/08/05 17:14:31 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/08/05 23:25:51 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef enum e_token_type
 
 struct s_slice
 {
-	// int	start;
 	char	*start;
 	int		len;
 };

@@ -6,7 +6,7 @@
 /*   By: lhasmi <lhasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 17:48:35 by lhasmi            #+#    #+#             */
-/*   Updated: 2023/08/05 23:04:57 by lhasmi           ###   ########.fr       */
+/*   Updated: 2023/08/06 13:59:51 by lhasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,18 @@ typedef struct s_builtin
 char				**get_builtins(void);
 
 int					is_builtin(t_list *node);
-
-int					ft_echo(int argc, ...);
-int					ft_cd(int argc, t_env *env, ...);
+// iterates over the argv array looking for command-line options (specifically,
+// the -n option for echo).
+int					parse_echo_options(char **argv, int *i);
+int					ft_echo(t_piper *pip, t_node *node);
+int					ft_cd(t_piper *pip, t_node *node);
 void				ft_pwd(void);
 int					ft_export(char **args);
 int					ft_unset(char **args);
-void				ft_env(char **args);
-void				ft_exit(char **args, int *exit_status);
+int					ft_exit(t_piper *pip, t_node *node);
+void				ft_env(t_piper *pip);
+// int					ft_export(t_piper *pip, t_node *node);
+// int					ft_unset(t_piper *pip, t_node *node);
+// int					ft_pwd(t_piper *pip, t_node *node);
 
 #endif

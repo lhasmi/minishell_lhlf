@@ -61,7 +61,8 @@ LIBFT_F		:= ft_atoi \
 			ft_printf_fd \
 			ft_putmem_fd \
 			ft_uphex_fd \
-			ft_uputnbr_fd
+			ft_uputnbr_fd \
+			free_argv.c
 
 GNL_F		:= get_next_line \
 			get_next_line_utils
